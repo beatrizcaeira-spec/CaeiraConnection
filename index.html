@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caeira Connection</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div id="modal-contrato" class="modal-fixo" style="display: none;">
+    <div class="modal-conteudo">
+        <h2>📜 CONTRATO DE PRESTAÇÃO DE SERVIÇOS</h2>
+        <div class="texto-contrato">
+            <p><strong>1. OBJETO:</strong> O presente contrato tem por objeto a prestação de serviços de comunicação multimídia (Internet Banda Larga).</p>
+            <p><strong>2. FIDELIDADE:</strong> O CLIENTE opta pelo benefício de isenção de taxa de instalação, aceitando uma <strong>fidelidade contratual de 12 (doze) meses</strong>.</p>
+            <p><strong>3. RESCISÃO E MULTA:</strong> Caso o CLIENTE solicite o cancelamento antes do prazo de 12 meses, será aplicada uma multa rescisória correspondente a <strong>40% (quarenta por cento) do valor total das mensalidades restantes</strong> até o fim do período de fidelidade.</p>
+            <p><strong>4. COMODATO:</strong> Os equipamentos (ONU/Roteador) são entregues em regime de comodato. Em caso de cancelamento, devem ser devolvidos em até 5 dias úteis em perfeito estado de conservação, sob pena de cobrança do valor integral do equipamento.</p>
+            <p><strong>5. PAGAMENTO:</strong> O vencimento ocorrerá na data escolhida. O atraso superior a 15 dias poderá acarretar na redução ou suspensão do sinal.</p>
+            <p><strong>6. ACEITE:</strong> Ao clicar no botão abaixo, o CLIENTE declara que leu e concorda com todos os termos acima citados.</p>
+        </div>
+        <button onclick="aceitarContrato()" class="btn-aceitar">CONCORDO COM OS TERMOS E FIDELIDADE</button>
+    </div>
+</div>
+
+<div class="background-overlay"></div>
+
+<div class="main-container">
+    <header>
+        <h1 class="logo">CAEIRA <span>CONNECTION</span></h1>
+        <div class="banner-box">
+            <img src="banner.png" alt="Banner" class="banner-img">
+        </div>
+    </header>
+    <main>
+        <h2 class="titulo-sessao">Escolha seu Plano</h2>
+        <div id="grid-itens" class="grid-planos"></div>
+    </main>
+</div>
+
+<div class="cart-badge" onclick="abrirCarrinho()">
+    🛒 <span id="badge-count">0</span>
+</div>
+
+<div class="overlay" onclick="fecharCarrinho()"></div>
+
+<aside class="cart-sidebar">
+    <div class="cart-header">
+        <h3 id="titulo-etapa" style="color:white">Sua Sacola</h3>
+        <button onclick="fecharCarrinho()">✕</button>
+    </div>
+
+    <div id="etapa-1" class="cart-scroll-area">
+        <div id="cart-area"></div>
+
+        <div class="form-secao">
+            <div class="cupom-box">
+                <input type="text" id="cupom-input" placeholder="Possui Cupom?">
+                <button onclick="aplicarCupom()">Aplicar</button>
+            </div>
+            <p id="msg-cupom" style="font-size: 11px; margin-top: -10px; margin-bottom: 10px;"></p>
+
+            <h4>Dados de Instalação</h4>
+            <input type="text" id="nome" placeholder="Nome Completo do Titular" class="input-grande">
+            <input type="text" id="rua" placeholder="Endereço (Rua, Nº, Bairro)" class="input-grande">
+            
+            <div class="box-checkout">
+                <p>Possui roteador próprio?</p>
+                <div class="flex-opcoes">
+                    <label><input type="radio" name="roteador" value="Sim" checked> Sim</label>
+                    <label><input type="radio" name="roteador" value="Não"> Não</label>
+                </div>
+            </div>
+        </div>
+        <button class="btn-proximo" onclick="irParaEtapa2()">PRÓXIMO PASSO ➔</button>
+    </div>
+
+    <div id="etapa-2" class="cart-scroll-area" style="display: none;">
+        <button class="btn-voltar" onclick="voltarParaEtapa1()">⬅ Alterar Dados</button>
+        
+        <div class="form-secao">
+            <h4>Forma de Pagamento</h4>
+            <select id="pagamento-select" class="input-grande">
+                <option value="Pix">Pix</option>
+                <option value="Dinheiro">Dinheiro</option>
+                <option value="Carnê Mensal">Carnê Mensal</option>
+                <option value="Boleto">Boleto</option>
+            </select>
+        </div>
+
+        <div class="box-contrato-alerta">
+            <p><strong>VALIDAÇÃO OBRIGATÓRIA:</strong></p>
+            <p style="font-size: 12px; margin: 5px 0;">Leia o contrato de fidelidade para habilitar a contratação.</p>
+            <button id="btn-ler-contrato" onclick="abrirContrato()">📖 LER CONTRATO COMPLETO</button>
+            <p id="status-contrato" class="status-pendente">Aguardando a Leitura</p>
+        </div>
+
+        <div class="total-final">
+            <span>VALOR TOTAL:</span>
+            <span id="cart-total">R$ 0,00</span>
+        </div>
+
+        <button id="btn-finalizar" class="btn-bloqueado" onclick="enviarWhatsApp()" disabled>FINALIZAR E CONTRATAR</button>
+    </div>
+</aside>
+
+<script src="script.js"></script>
+</body>
+</html>

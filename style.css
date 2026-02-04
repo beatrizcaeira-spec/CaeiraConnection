@@ -1,0 +1,301 @@
+/* ===============================
+   VARIÁVEIS + RESET
+================================ */
+:root {
+  --primary: #9b30ff;
+  --accent: #ca43ca;
+  --green: #6cd344;
+  --dark: #0c0218;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  background: var(--dark);
+  color: white;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===============================
+   BACKGROUND + CONTAINER
+================================ */
+.background-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(135deg, rgba(12,2,24,.9), rgba(155,48,255,.3)),
+    url("planofundo.png") center / cover;
+}
+
+.main-container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 16px;
+  text-align: center;
+}
+
+/* ===============================
+   TÍTULOS
+================================ */
+.titulo-sessao {
+  margin: 40px 0 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 900;
+}
+
+/* ===============================
+   GRID DE PLANOS
+================================ */
+.grid-planos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  padding: 20px 0;
+}
+
+/* ===============================
+   CARDS
+================================ */
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  padding: 30px 20px;
+  border-radius: 25px;
+  border: 1px solid rgba(255,255,255,0.1);
+  position: relative;
+  text-align: center;
+  transition: 0.4s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  border-color: var(--primary);
+  background: rgba(155, 48, 255, 0.05);
+}
+
+.beneficios {
+  list-style: none;
+  text-align: left;
+  margin-bottom: 25px;
+  font-size: 13px;
+  color: #ddd;
+  line-height: 2;
+}
+
+.featured {
+  border: 3px solid var(--primary);
+  box-shadow: 0 0 30px rgba(155, 48, 255, 0.4);
+}
+
+.badge-mais-vendido {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--primary);
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.btn-select {
+  background: white;
+  color: var(--dark);
+  border: none;
+  padding: 16px;
+  border-radius: 12px;
+  font-weight: 900;
+  width: 100%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-select:hover {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 5px 15px rgba(155, 48, 255, 0.4);
+}
+
+/* ===============================
+   CARRINHO
+================================ */
+.cart-badge {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: var(--green);
+  padding: 18px 25px;
+  border-radius: 50px;
+  font-weight: 900;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 420px;
+  height: 100%;
+  background: white;
+  z-index: 1000;
+  transform: translateX(100%);
+  transition: 0.4s;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-active .cart-sidebar {
+  transform: translateX(0);
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  display: none;
+  z-index: 999;
+}
+
+.sidebar-active .overlay {
+  display: block;
+}
+
+.cart-header {
+  background: var(--dark);
+  padding: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-scroll-area {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+  color: #333;
+}
+
+.cart-item {
+  background: #f8f8f8;
+  padding: 18px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #eee;
+}
+
+.qty-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.qty-box button {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  background: #ddd;
+  cursor: pointer;
+}
+
+/* ===============================
+   FORMULÁRIOS
+================================ */
+.form-secao {
+  margin-bottom: 30px;
+}
+
+.input-grande {
+  width: 100%;
+  padding: 16px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  border: 2px solid #eee;
+}
+
+/* Cupom */
+.cupom-box {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.cupom-box input {
+  flex: 1;
+  padding: 12px;
+}
+
+.cupom-box button {
+  background: var(--dark);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+}
+
+/* ===============================
+   MODAL
+================================ */
+.modal-fixo {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.95);
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.modal-conteudo {
+  background: white;
+  padding: 40px;
+  border-radius: 30px;
+  max-width: 500px;
+  color: #333;
+}
+
+/* ===============================
+   MOBILE AJUSTES
+================================ */
+@media (max-width: 480px) {
+  .cart-sidebar {
+    max-width: 100%;
+  }
+
+  .cart-scroll-area {
+    padding: 20px;
+  }
+
+  .cupom-box {
+    flex-direction: column;
+  }
+
+  .modal-conteudo {
+    padding: 25px;
+    border-radius: 20px;
+  }
+
+  .texto-contrato {
+    height: 220px;
+  }
+}

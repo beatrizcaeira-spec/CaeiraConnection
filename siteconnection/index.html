@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caeira Connection - Pedidos Online</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-overlay"></div>
+
+    <div class="app-wrapper">
+        <main class="content">
+            <header class="main-header">
+                <img src="sua-logo.png" alt="Logo" class="logo">
+                <div class="banner-container">
+                    <img src="banner.png" alt="Banner" class="hero-banner">
+                </div>
+            </header>
+
+            <section class="planos-grid">
+                <h2>Escolha seu Plano</h2>
+                <div id="grid-itens">
+                    </div>
+            </section>
+        </main>
+
+        <aside class="cart-sidebar">
+            <div class="cart-header">
+                <h3>Sua Sacola</h3>
+            </div>
+            
+            <div id="cart-content" class="cart-content">
+                <p class="empty-msg">Nenhum item selecionado</p>
+            </div>
+
+            <div class="cart-footer">
+                <div class="form-group">
+                    <input type="text" id="nome" placeholder="Nome Completo">
+                    <input type="text" id="tel" placeholder="WhatsApp (DDD)">
+                    <input type="text" id="endereco" placeholder="Endereço de Instalação">
+                </div>
+                
+                <div class="totals">
+                    <p>Qtd: <span id="cart-count">0</span></p>
+                    <p>Total: <strong id="cart-total">R$ 0,00</strong></p>
+                </div>
+
+                <button class="btn-finish" onclick="finalizarPedido()">FINALIZAR PEDIDO</button>
+            </div>
+        </aside>
+    </div>
+
+    <div id="modal-final" class="modal">
+        <div class="modal-card">
+            <h2>Pedido Confirmado! 🚀</h2>
+            <div id="resumo-detalhado"></div>
+            <button onclick="window.location.reload()">Novo Pedido</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+:root {
+    --primary: #9b30ff;
+    --secondary: #d800ff;
+    --dark: #0f021f;
+    --glass: rgba(255, 255, 255, 0.1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+
+body {
+    background: var(--dark) url('planofundo.png') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    height: 100vh;
+}
+
+.background-overlay {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(15, 2, 31, 0.9), rgba(155, 48, 255, 0.3));
+    z-index: -1;
+}
+
+.app-wrapper { display: flex; height: 100vh; }
+
+/* Lado Esquerdo */
+.content { flex: 1; overflow-y: auto; padding: 20px; }
+
+.logo { height: 60px; margin-bottom: 20px; }
+
+.hero-banner {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    margin-bottom: 30px;
+}
+
+.planos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.card-item {
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.card-item:hover { border-color: var(--secondary); transform: scale(1.03); }
+
+.card-item h3 { font-size: 1.5rem; margin: 10px 0; color: #00f2ff; }
+
+.btn-add {
+    background: white; color: black; border: none;
+    padding: 8px 15px; border-radius: 5px; cursor: pointer; font-weight: bold;
+}
+
+/* Lado Direito (Carrinho) */
+.cart-sidebar {
+    width: 350px; background: white; color: #333;
+    display: flex; flex-direction: column; padding: 20px;
+    box-shadow: -5px 0 20px rgba(0,0,0,0.3);
+}
+
+.cart-content { flex: 1; overflow-y: auto; margin: 20px 0; border-top: 1px solid #eee; }
+
+.item-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #f9f9f9; }
+
+.form-group input {
+    width: 100%; padding: 10px; margin-bottom: 8px;
+    border: 1px solid #ddd; border-radius: 5px;
+}
+
+.btn-finish {
+    width: 100%; background: #27ae60; color: white; border: none;
+    padding: 15px; border-radius: 8px; font-size: 1rem; font-weight: bold; cursor: pointer;
+}
+
+/* Modal */
+.modal {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.9);
+    display: none; align-items: center; justify-content: center;
+}
+.modal-card { background: white; color: #333; padding: 30px; border-radius: 15px; text-align: center; }
